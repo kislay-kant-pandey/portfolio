@@ -1,671 +1,719 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kislay</title>
-    <link rel="stylesheet" href="Libraries/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="Css/style.css" />
-  </head>
-  <body>
-    <!-- header  -->
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="#" class="nav-logo">Kislay Kant Pandey</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kislay Kant Pandey | Application for Chaayos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      :root {
+          --primary-green: #0f8f46;
+          --dark-green: #095c2b;
+          --text-dark: #222;
+          --text-light: #555;
+          --bg-light: #f9fdfa;
+          --accent-yellow: #f4c430;
+          --letter-bg: #fff;
+      }
+      body {
+          font-family: 'Poppins', sans-serif;
+          color: var(--text-dark);
+          background-color: #fff;
+          line-height: 1.6;
+          scroll-behavior: smooth;
+      }
+      .container {
+          max-width:700px;
+          margin: 0 auto;
+          padding: 0 15px;
+      }
+      .section-padding {
+          padding: 60px 0;
+      }
+      .bg-light {
+          background-color: var(--bg-light);
+      }
+      header {
+          background-color: var(--primary-green);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: white;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          flex-direction: column;
+          gap: 15px;
+          padding: 15px;
+      }
+      .logo-text {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #fff;
+          letter-spacing: 1px;
+      }
+      .logo-image {
+        width: 10rem;
+      }
+      header nav a {
+          color: white;
+          text-decoration: none;
+          margin: 0 15px;
+          font-weight: 500;
+          transition: 0.3s;
+      }
+      header nav a:hover {
+          color: var(--accent-yellow);
+      }
+      .nav-icons a {
+          color: white;
+          margin-left: 15px;
+          font-size: 1.2rem;
+          transition: 0.3s;
+      }
+      .nav-icons a:hover {
+          color: var(--accent-yellow);
+      }
+      .letter-section {
+          background-color: #f4f4f4;
+          padding: 50px 15px;
+          border-bottom: 1px solid #ddd;
+      }
+      .letter-card {
+          max-width: 700px;
+          margin: 0 auto;
+          background-color: var(--letter-bg);
+          border-radius: 10px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+          overflow: hidden;
+          border-top: 5px solid var(--primary-green);
+      }
+      .letter-content {
+          padding: 20px;
+      }
+      .letter-content h2 {
+          color: var(--primary-green);
+          font-size: 1.5rem;
+          margin-bottom: 20px;
+          text-align: center;
+      }
+      .letter-list {
+          margin: 20px 0;
+          padding-left: 20px;
+      }
+      .letter-list li {
+          margin-bottom: 10px;
+          color: var(--text-dark);
+      }
+      .letter-btn-group {
+          text-align: center;
+          margin-top: 30px;
+          padding-top: 20px;
+          border-top: 1px solid #eee;
+      }
+      .letter-btn-group p {
+          font-size: 0.9rem;
+          color: #777;
+          margin-bottom: 15px;
+      }
+      .hero {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 60px 8%;
+          background-color: #f0f7f4;
+          min-height: 80vh;
+          flex-direction: column-reverse;
+          text-align: center;
+          padding-top: 20px;
+      }
+      .hero {
+              flex-direction: column-reverse;
+              text-align: center;
+              padding-top: 20px;
+          }
+      .hero-text {
+          flex: 1;
+      }
+      .hero-text h1 {
+          font-size: 3rem;
+          line-height: 1.2;
+          margin-bottom: 20px;
+      }
+      .green-text {
+          color: var(--primary-green);
+          font-weight: 700;
+      }
+      .hero-text p {
+          font-size: 1.1rem;
+          color: var(--text-light);
+          margin-bottom: 30px;
+      }
+      .hero-image {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+      }
+      .hero-image img {
+          max-width: 400px;
+          border-radius: 50%;
+          border: 5px solid var(--primary-green);
+          box-shadow: 0 10px 30px rgba(15, 143, 70, 0.2);
+          margin-bottom: 30px;
+          width: 250px;
+      }
+      .section-title {
+          text-align: center;
+          font-size: 2.2rem;
+          margin-bottom: 10px;
+          font-weight: 600;
+          color: var(--dark-green);
+      }
+      .section-subtitle {
+          text-align: center;
+          color: var(--text-light);
+          margin-bottom: 40px;
+          font-size: 1.1rem;
+      }
+      .outline-btn {
+          border: 2px solid var(--primary-green);
+          color: var(--primary-green);
+          background: transparent;
+          padding: 10px 30px;
+          border-radius: 25px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: 0.3s;
+          text-decoration: none;
+          display: inline-block;
+      }
+      .outline-btn:hover {
+          background: var(--primary-green);
+          color: white;
+      }
+      .info-bar {
+          background-color: #f2f2f2;
+          padding: 12px 50px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.9rem;
+          color: #444;
+          border-bottom: 1px solid #ddd;
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+      }
+      .resume-btn {
+          background-color: var(--dark-green);
+          color: white;
+          border: none;
+          padding: 8px 20px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-weight: bold;
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: 0.3s;
+      }
+      .resume-btn:hover {
+          background-color: #06401d;
+      }
+      .tech-stack {
+          text-align: center;
+          padding: 30px 20px;
+          background: white;
+      }
+      .tech-stack p {
+          font-size: 0.8rem;
+          letter-spacing: 2px;
+          color: #888;
+          margin-bottom: 15px;
+          text-transform: uppercase;
+          font-weight: 700;
+      }
+      .stack-icons {
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          flex-wrap: wrap;
+      }
+      .stack-icons i {
+          font-size: 2rem;
+          color: var(--text-light);
+          transition: 0.3s;
+      }
+      .stack-icons i:hover {
+          color: var(--primary-green);
+      }
+      .banner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 15px;
+          padding: 40px;
+          margin-bottom: 30px;
+          box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      }
+      .exp-banner {
+          background: #effaf3;
+      }
+      .banner-content {
+          display: flex;
+          width: 100%;
+          justify-content: space-around;
+          align-items: center;
+          margin-bottom: 30px;
+          flex-direction: column;
+          text-align: center;
+      }
+      .banner-text {
+          flex: 1;
+      }
+      .banner-text h2 {
+          font-size: 2rem;
+          margin-bottom: 10px;
+      }
+      .banner-text h2 span {
+          color: var(--primary-green);
+      }
+      .live-sites {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          border-top: 1px solid #ddd;
+          padding-top: 20px;
 
-        <div class="nav-menu" id="nav-menu">
-          <ul class="nav-list grid">
-            <li class="nav-item">
-              <a href="#home" class="nav-link"
-                ><i class="fa-solid fa-house nav-icon"></i> Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link"
-                ><i class="fa-solid fa-user nav-icon"></i> About</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#skills" class="nav-link"
-                ><i class="fa-solid fa-file nav-icon"></i> Skills</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#Expertise" class="nav-link"
-                ><i class="fa-solid fa-briefcase nav-icon"></i> Expertise</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#portfolio" class="nav-link"
-                ><i class="fa-solid fa-image nav-icon"></i> Projects</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link"
-                ><i class="fa-solid fa-message nav-icon"></i> Contact</a
-              >
-            </li>
-          </ul>
-          <i class="fa-solid fa-xmark nav-close" id="nav-close"></i>
+          flex-direction: column;
+      }
+      .live-site-btn {
+          background: white;
+          border: 1px solid var(--primary-green);
+          color: var(--primary-green);
+          padding: 10px 20px;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          transition: 0.3s;
+      }
+      .live-site-btn:hover {
+          background: var(--primary-green);
+          color: white;
+      }
+      .project-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 30px;
+          margin-bottom: 30px;
+      }
+      .project-card {
+          background: white;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+          transition: 0.3s;
+          border: 1px solid #eee;
+      }
+      .project-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+      .project-card img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+      }
+      .project-info {
+          padding: 20px;
+      }
+      .project-info h3 {
+          color: var(--dark-green);
+          margin-bottom: 10px;
+      }
+      .project-info ul {
+          list-style-position: inside;
+          font-size: 0.9rem;
+          color: var(--text-light);
+          margin-bottom: 15px;
+      }
+      .center-btn {
+          text-align: center;
+          margin-top: 20px;
+      }
+      .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          gap: 20px;
+          text-align: center;
+      }
+      .skill-card {
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          border: 1px solid #eee;
+          transition: 0.3s;
+      }
+      .skill-card:hover {
+           border-color: var(--primary-green);
+      }
+      .skill-card i {
+          font-size: 3rem;
+          color: var(--primary-green);
+          margin-bottom: 10px;
+      }
+      .skill-label {
+          background: var(--dark-green);
+          color: white;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          display: inline-block;
+          width: 100%;
+      }
+      .edu-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+      }
+      .edu-card {
+          border: 1px solid #eee;
+          padding: 20px;
+          border-radius: 10px;
+          position: relative;
+          background: white;
+      }
+      .badge {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: var(--accent-yellow);
+          color: #000;
+          padding: 2px 8px;
+          font-size: 0.7rem;
+          font-weight: bold;
+          border-radius: 4px;
+      }
+      .edu-card h3 {
+          font-size: 1.1rem;
+          margin-bottom: 5px;
+          color: var(--dark-green);
+      }
+      .edu-card .year {
+          font-size: 0.85rem;
+          color: #888;
+          margin-bottom: 10px;
+          display: block;
+      }
+      .edu-card p {
+          font-size: 0.9rem;
+          color: var(--text-light);
+      }
+      .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          text-align: center;
+
+          grid-template-columns: 1fr;
+      }
+      .contact-item {
+          padding: 30px;
+          background: #fff;
+          border-radius: 10px;
+          box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      }
+      .contact-item i {
+          font-size: 2rem;
+          margin-bottom: 15px;
+          color: var(--primary-green);
+      }
+      footer {
+          background-color: var(--dark-green);
+          color: white;
+          padding: 50px;
+          text-align: center;
+      }
+      .footer-links {
+          margin-top: 20px;
+      }
+      .footer-links a {
+          color: white;
+          font-size: 1.5rem;
+          margin: 0 15px;
+          transition: 0.3s;
+      }
+      .footer-links a:hover {
+          color: var(--accent-yellow);
+      }
+      
+    </style>
+</head>
+<body>
+    <header id="navbar">
+        <div class="logo">
+            <img src="https://cdn.shopify.com/s/files/1/0676/1670/2626/files/image-removebg-preview.png" class="logo-text logo-image" style="size:cover;">
         </div>
-
-        <div class="nav-btns">
-          <!-- theme btn  -->
-          <i class="fa-regular fa-moon change-theme" id="theme-button"></i>
-
-          <div class="nav-toggle" id="nav-toggle">
-            <i class="fa-solid fa-bars"></i>
-          </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="https://github.com/kislay-kant-pandey" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/kislay-kant-pandey" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
-      </nav>
     </header>
+    <section class="letter-section">
+        <div class="container">
+            <div class="letter-card">
+                <div class="letter-content">
+                    <h2>Application for Web Developer Role</h2>
+                    
+                    <p><strong>Dear Hiring Team @ Chaayos,</strong></p>
+                    <br>
+                    <p>I am writing to express my interest in the Web Developer position. Being a fan of Chaayos, I took the liberty of designing my portfolio based on your brand's theme to demonstrate my attention to detail and frontend skills.</p>
 
-    <main class="main">
-      <section class="home section" id="home">
-        <div class="home-container container grid">
-          <div class="home-content grid">
-            <div class="home-social">
-              <a
-                href="https://www.linkedin.com/in/kislay-kant-pandey/"
-                target="_blank"
-                class="home-social-icon"
-              >
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/kislay.kant.pandey/"
-                target="_blank"
-                class="home-social-icon"
-              >
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="https://github.com/kislay-kant-pandey" target="_blank" class="home-social-icon" ><i class="fa-brands fa-github"></i> </a>
-            </div>
+                    <h4 style="margin-top: 20px; color: var(--dark-green);">Why I am a Great Fit</h4>
+                    <ul class="letter-list">
+                        <li><strong>Shopify & Liquid Expertise:</strong> I have hands-on experience developing production-ready e-commerce sites (Nector Foods).</li>
+                        <li><strong>MERN Stack Proficiency:</strong> Strong command over MongoDB, Express, React, and Node.js for scalable web applications.</li>
+                        <li><strong>Proven Track Record:</strong> Delivered live projects improving internal team efficiency and user experience.</li>
+                    </ul>
 
-            <div class="home-img">
-              <svg
-                class="home-blob"
-                viewBox="0 0 200 187"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-              >
-                <mask id="mask0" mask-type="alpha">
-                  <path
-                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-        130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-        97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-        0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                  />
-                </mask>
-                <g mask="url(#mask0)">
-                  <path
-                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-        165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-        129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-        -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                  />
-                  <image
-                    class="home-blob-img"
-                    x="-15"
-                    y="-5"
-                    href="Assets/Icons/logo1.png"
-                  />
-                </g>
-              </svg>
+                    <h4 style="margin-top: 20px; color: var(--dark-green);">Recent Live Deployments</h4>
+                    <p>At my current role at Nector Foods, I have successfully deployed:</p>
+                    <div style="text-align: center; margin: 15px 0;">
+                        <a href="https://feralgains.com" target="_blank" class="outline-btn" style="font-size: 0.8rem; padding: 5px 15px; margin: 5px;">feralgains.com</a>
+                        <a href="https://nectorhealth.com" target="_blank" class="outline-btn" style="font-size: 0.8rem; padding: 5px 15px; margin: 5px;">nectorhealth.com</a>
+                    </div>
+                    <div style="font-size: 10px;"><i class="fa-solid fa-circle-info"></i> These websites are mobile-first and optimized for mobile viewing.</div>
+                    <div class="letter-btn-group">
+                        <p>You can scroll down to view my detailed Portfolio or download my Resume below:</p>
+                        <a href="https://drive.google.com/file/d/15Lvbxtd-_m7cilXAM6ruoUBFX1oGARkg/view" target="_blank" class="resume-btn"><i class="fas fa-download"></i> Download Resume</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="home-data">
-              <h1 class="home-title">Hi, I am Kislay Pandey</h1>
-              <h3 class="home-subtitle">Frontend Developer</h3>
-              <p class="home-description">
-                Passionate frontend developer specializing in perfect web
-                design.
-              </p>
-              <a href="#contact" class="button button-flex">
-                Contact Me <i class="fa-regular fa-envelope button-icon"></i>
-              </a>
-            </div>
-          </div>
-          <div class="home-scroll">
-            <a href="#about" class="home-scroll-button button-flex">
-              <!-- <i class="fa-solid fa-computer-mouse home-scroll-mouse"></i> -->
-              <img class="home-scroll-mouse" src="Assets/mouse.svg" alt="" />
-              <span class="home-scroll-name">Scroll down</span>
-              <i class="fa-solid fa-angles-down home-scroll-arrow"></i>
-            </a>
-          </div>
         </div>
-      </section>
-
-      <section class="about section" id="about">
-        <h2 class="section-title">About Me</h2>
-        <span class="section-subtitle">My Introduction</span>
-
-        <div class="about-container container grid">
-          <img src="Assets/Icons/aboutimg.png" alt="" class="about-img" />
-
-          <div class="about-data">
-            <p class="about-description">
-              I'm a skilled Frontend Developer who loves making websites easy to use. I know HTML, CSS, and JavaScript well, and I focus on creating websites that look great and are easy to navigate. I'm good at making sure websites work well on all devices and follow good design principles. Each project I work on is carefully crafted to be both precise and functional.
-            </p>
-
-            <div class="about-info">
-              <div>
-                <span class="about-info-title">00+</span>
-                <span class="about-info-name"
-                  >Years <br />
-                  experience</span
-                >
-              </div>
-              <div>
-                <span class="about-info-title">5+</span>
-                <span class="about-info-name"
-                  >Completed <br />
-                  project</span
-                >
-              </div>
-              <div>
-                <span class="about-info-title">00+</span>
-                <span class="about-info-name"
-                  >Internship </span
-                >
-              </div>
-            </div>
-
-            <div class="about-buttons">
-              <a
-                download=""
-                href="resume.pdf"
-                class="button button-flex"
-              >
-                Download Resume<i
-                  class="fa-solid fa-file-arrow-down button-icon"
-                ></i>
-              </a>
-            </div>
-          </div>
+    </section>
+    <section class="hero" id="about">
+        <div class="hero-text">
+            <h1>Expert in <span class="green-text">MERN Stack</span> & <br>Scalable Web Solutions</h1>
+            <p><strong>Hi, I'm Kislay Kant Pandey.</strong> <br>
+            Full Stack Developer with 12 months of hands-on experience building high-performance e-commerce solutions and internal dashboards.</p>
+            <a href="#experience" class="outline-btn" style="background: var(--primary-green); color: white;">View Experience</a>
         </div>
-      </section>
-
-      <!-- skills and qualification  -->
-      <section class="skills section" id="skills">
-        <h2 class="section-title">Skills</h2>
-        <span class="section-subtitle">My Technical Skills</span>
-        <div class="skills-content container">
-          <div class="skills-name">JavaScript</div>
-          <div class="skills-name">React JS</div>
-<!--           <div class="skills-name">Tailwind CSS</div> -->
-          <div class="skills-name">Bootstrap</div>
-          <div class="skills-name">CSS</div>
-<!--           <div class="skills-name">SASS</div> -->
-<!--           <div class="skills-name">Figma</div> -->
-          <div class="skills-name">Node JS</div>
-          <div class="skills-name">Express JS</div>
-          <div class="skills-name">MongoDB</div>
-          <div class="skills-name">Photoshop</div>
-          <div class="skills-name">Python</div>
-          <div class="skills-name">SQL</div>
-          <div class="skills-name">DSA</div>
-          <div class="skills-name">c++</div>
+        <div class="hero-image">
+            <img src="https://avatars.githubusercontent.com/u/91402720" alt="Kislay Kant Pandey">
         </div>
-      </section>
-      <section class="qualification section">
-        <h2 class="section-title">Qualification</h2>
-        <span class="section-subtitle">My journey</span>
-
-        <div class="qualification-container container">
-          <div class="qualification-tabs">
-            <div
-              class="qualification-button button-flex qualification-active"
-              data-target="#education"
-            >
-              <i class="fa-solid fa-graduation-cap qualification-icon"></i>
-              Education
-            </div>
-<!--             <div class="qualification-button button-flex" data-target="#work">
-              <i class="fa-solid fa-briefcase qualification-icon"></i>
-              Work
-            </div> -->
-          </div>
-
-          <div class="qualification-section">
-            <div class="qualification-content qualification-active" data-content id="education" >
-
-              <!-- qualifi 1 -->
-              <div class="qualification-data">
-                <div>
-                  <h3 class="qualification-title">Bachelor of Science in Information Technology </h3>
-                  <span class="qualification-subtitle">Patliputra university</span>
-                  <div class="qualification-date"> <i class="fa-solid fa-calendar-days"></i> 2022 - 2025</div>
-                </div>
-                <div>
-                  <span class="qualification-round"></span>
-                  <span class="qualification-line"></span>
-                </div>
-              </div>
-
-              <!-- qualifi 2 -->
-              <div class="qualification-data">
-                <div></div>
-
-                <div>
-                  <span class="qualification-round"></span>
-                  <span class="qualification-line"></span>
-                </div>
-
-                <div>
-                  <h3 class="qualification-title">
-                    Full Stack Web Development
-                  </h3>
-                  <span class="qualification-subtitle">Apna college</span>
-                  <div class="qualification-date">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    2022 - 2023
-                  </div>
-                </div>
-              </div>
-
-              <!-- qualifi 3 -->
-
-              <div class="qualification-data">
-                <div>
-                  <h3 class="qualification-title">Cisco Certified Network Associate</h3>
-                  <span class="qualification-subtitle">CISCO</span>
-                  <div class="qualification-date">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    2023 - 2024
-                  </div>
-                </div>
-                <div>
-                  <span class="qualification-round"></span>
-                  <span class="qualification-line"></span>
-                </div>
-              </div>
-            </div> 
-
-<!--         qualific content 2
-             <div class="qualification-content" data-content id="work">
-
-                 ---  qualifi 1 ----
-
-               <div class="qualification-data">
-                <div>
-                  <h3 class="qualification-title">Full Stack Developer</h3>
-                  <span class="qualification-subtitle">Fiverr</span>
-                  <div class="qualification-date">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    2023 - Present
-                  </div>
-                </div>
-                <div>
-                  <span class="qualification-round"></span>
-                  <span class="qualification-line"></span>
-                </div>
-              </div> 
-
-              --- qualifi 2 ---
-
-              <div class="qualification-data">
-                <div></div>
-
-                <div>
-                  <span class="qualification-round"></span>
-                  <span class="qualification-line"></span>
-                </div>
-
-                <div>
-                  <h3 class="qualification-title">Ui/Ux Designer</h3>
-                  <span class="qualification-subtitle">Freelancer</span>
-                  <div class="qualification-date">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    2022 - Present
-                  </div>
-                </div>
-              </div> 
-
-              ---- qualifi 3 ---
-
-               <div class="qualification-data">
-                <div>
-                  <h3 class="qualification-title">Content Creator</h3>
-                  <span class="qualification-subtitle">YouTube</span>
-                  <div class="qualification-date">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    2019 - Present
-                  </div>
-                </div>
-                <div> 
-                  <span class="qualification-round"></span>
-                  --- <span class="qualification-line"></span> ---
-                </div>
-              </div>
-            </div>
--->
-          </div>
+    </section>
+    <div class="info-bar">
+        <span>Open for Opportunities | <strong>📍 India</strong> | 📧 <strong>kislaykantpandey123@gmail.com</strong></span>
+        <a href="https://cdn.shopify.com/s/files/1/0676/1670/2626/files/kislay_2025_resume.pdf?v=1770243719" target="_blank" class="resume-btn"><i class="fas fa-download"></i> RESUME</a>
+    </div>
+    <section class="tech-stack">
+        <p>CORE TECHNOLOGIES</p>
+        <div class="stack-icons">
+            <i class="fab fa-shopify" title="Shopify"></i>
+            <i class="fab fa-js" title="JavaScript"></i>
+            <i class="fab fa-react" title="React.js"></i>
+            <i class="fab fa-node-js" title="Node.js"></i>
+            <i class="fas fa-database" title="MongoDB"></i>
+            <i class="fab fa-aws" title="AWS"></i>
         </div>
-      </section>
-
-      <section class="services section" id="Expertise">
-        <h2 class="section-title">Expertise</h2>
-        <span class="section-subtitle">What all can I do?</span>
-
-        <div class="services-container container grid">
-          <!-- service 1  -->
-          <div class="services-content">
-            <div>
-              <i class="fa-solid fa-code services-icon"></i>
-
-              <h3 class="services-title">
-                Frontend <br />
-                Development
-              </h3>
+    </section>
+    <section class="container section-padding" id="experience">
+        <h2 class="section-title" style="margin-bottom: 30px;">Professional Experience</h2>
+        <div class="banner exp-banner">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2>Software Developer <br><span>@ Nector Foods Pvt Ltd</span></h2>
+                    <h4 style="color: #666;">Nov 2024 – Present</h4>
+                    <p style="margin-bottom: 15px;">
+                        <i class="fas fa-check-circle" style="color: var(--primary-green)"></i> Developed production-ready e-commerce site using Shopify & Liquid.<br>
+                        <i class="fas fa-check-circle" style="color: var(--primary-green)"></i> Built reusable React.js components enhancing brand consistency.<br>
+                        <i class="fas fa-check-circle" style="color: var(--primary-green)"></i> Integrated RESTful APIs ensuring seamless data flow.
+                    </p>
+                    <span class="outline-btn" style="border: 1px solid #444; color: #444; pointer-events: none; font-size: 0.8rem;">Full Stack Role</span>
+                </div>
+                
             </div>
-            <span
-              class="button button-flex button-small button-link services-button"
-            >
-              View more
-              <i class="fa-solid fa-arrow-right button-icon"></i>
-            </span>
-
-            <div class="services-box">
-              <div class="services-box-content">
-                <h4 class="services-box-title">
-                  Frontend <br />
-                  Development
-                </h4>
-                <i class="fa-solid fa-xmark services-box-close"></i>
-
-                <ul class="services-box-services grid">
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Responsive Web Design</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Interactive User Interfaces</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>SEO-Friendly Implementations</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Accessibility and UX Enhancement</p>
-                  </li>
-                </ul>
-              </div>
+            
+            <div class="live-sites">
+                <p style="width: 100%; text-align: center; margin-bottom: 10px; font-weight: bold; color: #555;">Recent Live Projects Deployed:</p>
+                <a href="https://feralgains.com" target="_blank" class="live-site-btn">
+                    <i class="fas fa-external-link-alt"></i> Feralgains.com
+                </a>
+                <a href="https://nectorhealth.com" target="_blank" class="live-site-btn">
+                    <i class="fas fa-external-link-alt"></i> Nectorhealth.com
+                </a>
+                <div style="font-size: 10px; color: #0f8f46;"><i class="fa-solid fa-circle-info"></i> These websites are mobile-first and optimized for mobile viewing.</div>
             </div>
-          </div>
-          <!-- service 2  -->
-          <div class="services-content">
-            <div>
-              <i class="fa-brands fa-uikit services-icon"></i>
-              <h3 class="services-title">
-                Ui/Ux <br />
-                Designer
-              </h3>
-            </div>
-            <span
-              class="button button-flex button-small button-link services-button"
-            >
-              View more
-              <i class="fa-solid fa-arrow-right button-icon"></i>
-            </span>
-
-            <div class="services-box">
-              <div class="services-box-content">
-                <h4 class="services-box-title">
-                  Ui/Ux <br />
-                  Designer
-                </h4>
-                <i class="fa-solid fa-xmark services-box-close"></i>
-
-                <ul class="services-box-services grid">
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Intuitive User Interface Design</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Responsive and Mobile-First Design</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Seamless User Experience Optimization</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Accessibility and Usability Enhancements</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- service 3  -->
-          <div class="services-content">
-            <div>
-              <i class="fa-solid fa-hashtag services-icon"></i>
-              <h3 class="services-title">
-                Content<br />
-                Creation
-              </h3>
-            </div>
-            <span
-              class="button button-flex button-small button-link services-button"
-            >
-              View more
-              <i class="fa-solid fa-arrow-right button-icon"></i>
-            </span>
-
-            <div class="services-box">
-              <div class="services-box-content">
-                <h4 class="services-box-title">
-                  Content <br />
-                  Creation
-                </h4>
-                <i class="fa-solid fa-xmark services-box-close"></i>
-
-                <ul class="services-box-services grid">
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Engaging Visual Content</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Social Media Management</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Content Strategy Consulting</p>
-                  </li>
-                  <li class="services-box-list">
-                    <i
-                      class="fa-regular fa-circle-check services-list-icon"
-                    ></i>
-                    <p>Brand Development and Growth</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
-      
-<!-- NEW SECTION -->
-      <section class="portfolio section" id="portfolio">
-        <h2 class="section-title">Projects</h2>
-        <span class="section-subtitle">Most recent work</span>
+    </section>
+    <section class="container section-padding" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Scalable solutions built with modern tech</p>
+        
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Zerodha Trading Clone</h3>
+                    <ul>
+                        <li>React.js, Node.js, MongoDB, Express.js</li>
+                        <li>Real-time data visualization dashboard.</li>
+                        <li>Secure JWT auth & Bcrypt encryption.</li>
+                        <li>Complex state management for portfolio tracking.</li>
+                    </ul>
+                </div>
+            </div>
 
-        <div class="portfolio-container container swiper-container">
-          <div class="swiper-wrapper">
-            <!-- project1  -->
-            <div class="portfolio-content grid swiper-slide">
-              <img src="Assets/project1.svg" alt="" class="portfolio-img" />
-
-              <div class="portfolio-data">
-                <h3 class="portfolio-title">Code Editor</h3>
-                <p class="portfolio-description">
-                   A Web-Based Code Editor! designed to simplify your coding experience. With real-time HTML, CSS, and JavaScript editing,
-                <a href="https://kislay-kant-pandey.github.io/codeEditor/"
-                  target="_blank"
-                  class="button button-flex button-small portfolio-button"
-                  >Project Link
-                  <i class="fa-solid fa-arrow-right button-icon"></i
-                ></a>
-              </div>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>URL Shortener Application</h3>
+                    <ul>
+                        <li>MERN Stack & Redis Optimization</li>
+                        <li>Production-ready URL shortening service.</li>
+                        <li>Analytics dashboard for click tracking.</li>
+                        <li>Optimized MongoDB queries for speed.</li>
+                    </ul>
+                </div>
             </div>
-            <!-- project2  -->
-            <!-- project3  -->
-          </div>
-          <div class="swiper-angles">
-            <div class="swiper-button-next">
-              <i class="fa-solid fa-angle-right swiper-icon"></i>
+            
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Internal Dashboards (Nector)</h3>
+                    <ul>
+                        <li>Node.js, Nodemailer, Liquid</li>
+                        <li>Automated email notification systems.</li>
+                        <li>Employee management dashboards.</li>
+                        <li>RESTful API integration across devices.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="swiper-button-prev">
-              <i class="fa-solid fa-angle-left swiper-icon"></i>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
         </div>
-      </section>
-<!--NEW SECTIION------------------- -->
-      <section class="project-contact section">
-        <div class="project-bg">
-          <div class="project-container container grid">
-            <div class="project-data">
-              <h2 class="project-title">Do you have a new project?</h2>
-              <p class="project-description">
-                If you have any project or any doubt in web development then contact me.
-              </p>
-              <a href="#contact" class="button button-flex button-white"
-                >Contact Me
-                <i
-                  class="fa-regular fa-comment-dots project-icon button-icon"
-                ></i>
-              </a>
-            </div>
-            <img src="Assets/Icons/contactme.png" alt="" class="project-img" />
-          </div>
+        
+        <div class="center-btn">
+            <a href="https://github.com/kislay-kant-pandey" target="_blank" class="outline-btn">Visit GitHub Profile</a>
         </div>
-      </section>
-<!-- testimonial -->
-      
-
-<!-- contact me  -->
-      <section class="contact section" id="contact">
-        <h2 class="section-title">Contact me</h2>
-        <span class="section-subtitle">Say hello</span>
-
-        <div class="contact-container container grid">
-          <div>
-            <div class="contact-info">
-              <i class="fa-regular fa-envelope contact-icon"></i>
-              <div>
-                <h3 class="contact-title">Email</h3>
-                <a
-                  href="mailto:kislaykantpandey123@outlook.com"
-                  target="_blank"
-                  class="contact-subtitle"
-                  >kislaykantpandey123@outlook.com</a
-                >
-              </div>
+    </section>
+    <section class="container section-padding bg-light" id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Tools & Platforms I work with</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-shopping-bag"></i>
+                <div class="skill-label">SHOPIFY / LIQUID</div>
             </div>
-            <div class="contact-info">
-              <i class="fa-brands fa-linkedin-in contact-icon"></i>
-              <div>
-                <h3 class="contact-title">Linkedin</h3>
-                <a
-                  class="contact-subtitle"
-                  href="https://www.linkedin.com/in/kislay-kant-pandey/"
-                  target="_blank"
-                  >@kislay-kant-pandey</a
-                >
-              </div>
+            <div class="skill-card">
+                <i class="fab fa-js-square"></i>
+                <div class="skill-label">JAVASCRIPT</div>
             </div>
-          </div>
+            <div class="skill-card">
+                <i class="fab fa-react"></i>
+                <div class="skill-label">REACT.JS</div>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-node"></i>
+                <div class="skill-label">NODE.JS</div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <div class="skill-label">MONGODB</div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <div class="skill-label">C++ / DSA</div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-server"></i>
+                <div class="skill-label">SQL / MYSQL</div>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-git-alt"></i>
+                <div class="skill-label">GIT / GITHUB</div>
+            </div>
         </div>
-      </section>
-
-      <!-- footer  -->
-      <footer class="footer">
-        <div class="footer-bg">
-          <div class="footer-container container grid">
-            <div>
-              <h1 class="footer-title">Kislay Pandey</h1>
-              <span class="footer-subtitle">Frontend developer</span>
-            </div>
-            <ul class="footer-links">
-              <li>
-                <a href="#Expertise" class="footer-link">Expertise</a>
-              </li>
-              <li>
-                <a href="#skills" class="footer-link">Skills</a>
-              </li>
-              <li>
-                <a href="#contact" class="footer-link">Contact</a>
-              </li>
-            </ul>
-
-            <div class="footer-socials">
-              <a
-                href="https://www.linkedin.com/in/kislay-kant-pandey/"
-                target="_blank"
-                class="footer-social"
-              >
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a
-                href="https://github.com/kislay-kant-pandey"
-                target="_blank"
-                target="_blank"
-                class="footer-social"
-              >
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/kislay.kant.pandey/"
-                target="_blank"
-                class="footer-social"
-              >
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-          <p class="footer-copy">By Kislay Pandey - A developer</p>
+    </section>
+    <section class="container section-padding">
+        <div class="flex-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2 class="section-title">Education & Certifications</h2>
         </div>
-      </footer>
-    </main>
+        <div class="edu-grid">
+            <div class="edu-card">
+                <span class="badge">DEGREE</span>
+                <h3>B.Sc Information Technology</h3>
+                <span class="year">Patliputra University | 2022 - 2025</span>
+                <p>Secured 62%. Focused on Data Structures, Algorithms, and Core Computing.</p>
+            </div>
+            <div class="edu-card">
+                <span class="badge">SCHOOLING</span>
+                <h3>Higher Secondary (XII)</h3>
+                <span class="year">BBOSE | 2021</span>
+                <p>Science Stream. Secured 60%.</p>
+            </div>
+            <div class="edu-card">
+                <span class="badge" style="background: var(--dark-green); color: white;">CERTIFICATION</span>
+                <h3>CISCO CCNA</h3>
+                <span class="year">March 2024</span>
+                <p>Introduction to Networking. Understanding of network protocols and architecture.</p>
+            </div>
+            <div class="edu-card">
+                <span class="badge" style="background: var(--dark-green); color: white;">CERTIFICATION</span>
+                <h3>MERN Stack Web Dev</h3>
+                <span class="year">Apna College | July 2024</span>
+                <p>Comprehensive training in MongoDB, Express, React, and Node.js.</p>
+            </div>
+        </div>
+    </section>
+    <section class="container section-padding contact-section" id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <h3>+91-9798546459</h3>
+                <p>Available for Interviews & Collaboration</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h3>kislaykantpandey123@gmail.com</h3>
+                <p>Drop a mail for queries or resume request</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="logo-text" style="margin-bottom: 20px;">KISLAY KANT PANDEY</div>
+        <p>Full Stack Developer | Based in India</p>
+        <div class="footer-links">
+            <a href="https://linkedin.com/in/kislay-kant-pandey"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/kislay-kant-pandey"><i class="fab fa-github"></i></a>
+            <a href="mailto:kislaykantpandey123@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2025 Kislay Kant Pandey. Designed with Chaayos Theme.</p>
+    </footer>
 
-    <a href="#home" class="scrollup" id="scroll-up">
-      <i class="fa-solid fa-arrow-up scroll-up-icon"></i>
-    </a>
-    <script src="Libraries/swiper-bundle.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/9b634c15bd.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="script.js"></script>
-  </body>
-</html> 
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 4px 15px rgba(0,0,0,0.15)";
+            } else {
+                header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+            }
+        });
+        console.log("Kislay's Portfolio Loaded Successfully");
+    </script>
+</body>
+</html>
